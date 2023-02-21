@@ -31,7 +31,7 @@ def parse_url(key: str, count: int):
     return url
 
 
-def get_fish(url: str):
+def get_fish(url: str, fish_name: str):
     # url = "https://cn.bing.com/images/api/custom/search?q=Zebrias+zebra&id=7D3D35EF1F956FD4B666BDEBF3B32FD2A1989964&preserveIdOrder=1&count=25&offset=0&skey=XZsqCJEFoUIxADe3sw037WwG8t-3df5e40mjBGZYBBM&safeSearch=Strict&mkt=zh-cn&setLang=zh-cn&IG=A8932C399D66471F8788473B5657E052&IID=idpfs&SFX=1"
 
     cookies = extract_cookies(cookies_raw)
@@ -52,7 +52,7 @@ def get_fish(url: str):
             url = i["contentUrl"]
 
         finally:
-            fish_list.append(Fish(name, url))
+            fish_list.append(Fish(name, url, fish_name))
 
     return fish_list
 
